@@ -14,6 +14,21 @@ configure:
   artifacts:
     untracked: true
 
+build:
+  stage: build
+  script:
+    - cd cmake-build-debug
+    - make
+  artifacts:
+    paths:
+      - cmake-build-debug/interface/libinterface.so
+      - cmake-build-debug/backend/libbackend.so
+      - cmake-build-debug/executable/executable
 
+
+test:
+  stage: test
+  script:
+    - cmake-build-debug/executable/executable
 
 
