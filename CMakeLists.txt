@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(linking_foolery)
+project(linking_foolery CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_SHARED_LIBRARY_SUFFIX .so)
