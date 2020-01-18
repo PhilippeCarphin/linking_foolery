@@ -2,7 +2,7 @@ stages:
   - configure
   - build
   - test
-  - makefile_build
+#  - makefile_build
 
 configure:
   stage: configure
@@ -37,12 +37,12 @@ test:
   tags:
     - imac
 
-makefile_build:
-  stage: makefile_build
-  script:
-    - make
-    - make test
-  tags:
-    - imac
+# jmakefile_build:
+#   stage: makefile_build
+#   script:
+#     - make
+#     - make test
+#   tags:
+#     - imac
 
 
