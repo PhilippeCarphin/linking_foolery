@@ -32,6 +32,7 @@ build:
 test:
   stage: test
   script:
+    - tree cmake-build-debug
     - cmake-build-debug/executable/executable
   tags:
     - imac
