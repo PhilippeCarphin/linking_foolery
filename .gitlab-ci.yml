@@ -2,6 +2,7 @@ stages:
   - configure
   - build
   - test
+  - makefile_build
 
 configure:
   stage: configure
@@ -33,5 +34,11 @@ test:
     - cmake-build-debug/executable/executable
   tags:
     - imac
+
+makefile_build:
+  stage: makefile_build
+  script:
+    - make
+    - make test
 
 

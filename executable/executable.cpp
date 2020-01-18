@@ -23,7 +23,7 @@ int main(void){
 
     std::cout << "============ executable opens libinterface.so using dlopen() and calls one of it's function =============" << std::endl;
     // We can do the same with the function loaded using dlopen.
-    auto power_of_two_f = load_symbol_from_library();
+    power_of_two_t power_of_two_f = load_symbol_from_library();
 
     int pot = power_of_two_f(exponent);
     std::cout << "2^"<<exponent<<" = " << pot << std::endl;
