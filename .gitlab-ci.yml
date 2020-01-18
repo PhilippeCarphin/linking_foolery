@@ -1,8 +1,8 @@
 
 
 stages:
-  - configura
   - build
+  - configure
   - test
 
 configure:
