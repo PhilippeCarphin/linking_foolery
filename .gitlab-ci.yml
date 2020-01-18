@@ -5,7 +5,7 @@ stages:
   - configure
   - test
 
-configure:mac:gcc:
+configure:
   stage: configure
   script:
     - mkdir cmake-build-debug
