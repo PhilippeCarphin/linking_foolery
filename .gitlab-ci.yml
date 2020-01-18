@@ -1,8 +1,8 @@
 image: amardikian/clang-3.8
 
 stages:
-  - build
   - configure
+  - build
   - test
 
 configure:
@@ -24,7 +24,6 @@ build:
       - cmake-build-debug/interface/libinterface.so
       - cmake-build-debug/backend/libbackend.so
       - cmake-build-debug/executable/executable
-
 
 test:
   stage: test
