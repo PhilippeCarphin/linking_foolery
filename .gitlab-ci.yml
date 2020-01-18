@@ -31,6 +31,8 @@ build:
 test:
   stage: test
   script:
+    - ldd cmake-build-debug/interface/libinterface.dylib
+    - ldd cmake-build-debug/executable/executable
     - cmake-build-debug/executable/executable
   tags:
     - imac
