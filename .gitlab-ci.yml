@@ -1,4 +1,4 @@
-image: amardikian/clang-3.8
+# image: amardikian/clang-3.8
 
 stages:
   - configure
@@ -13,6 +13,8 @@ configure:
     - cmake ..
   artifacts:
     untracked: true
+  tags:
+    - imac
 
 build:
   stage: build
@@ -24,10 +26,14 @@ build:
       - cmake-build-debug/interface/libinterface.so
       - cmake-build-debug/backend/libbackend.so
       - cmake-build-debug/executable/executable
+  tags:
+    - imac
 
 test:
   stage: test
   script:
     - cmake-build-debug/executable/executable
+  tags:
+    - imac
 
 
