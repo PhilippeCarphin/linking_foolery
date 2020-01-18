@@ -5,6 +5,7 @@ target_link_libraries(
     PRIVATE
         backend
         interface
+        dl
 )
 
 target_compile_definitions(executable PRIVATE "LIB_INTERFACE_PATH=\"${CMAKE_BINARY_DIR}/interface/libinterface.so\"")
