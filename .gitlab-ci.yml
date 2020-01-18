@@ -1,14 +1,13 @@
-
+image: amardikian/clang-3.8
 
 stages:
   - build
   - configure
   - test
 
-configure:
+configure:mac:gcc:
   stage: configure
   script:
-    - apt-get install cmake
     - mkdir cmake-build-debug
     - cd cmake-build-debug
     - cmake ..
