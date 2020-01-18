@@ -23,8 +23,8 @@ build:
     - make
   artifacts:
     paths:
-      - cmake-build-debug/interface/libinterface.so
-      - cmake-build-debug/backend/libbackend.so
+      - cmake-build-debug/interface/libinterface.dylib
+      - cmake-build-debug/backend/libbackend.dylib
       - cmake-build-debug/executable/executable
   tags:
     - imac
