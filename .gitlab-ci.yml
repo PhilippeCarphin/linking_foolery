@@ -8,6 +8,7 @@ stages:
 configure:
   stage: configure
   script:
+    - apt-get install cmake
     - mkdir cmake-build-debug
     - cd cmake-build-debug
     - cmake ..
