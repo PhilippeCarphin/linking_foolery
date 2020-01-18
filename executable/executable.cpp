@@ -13,6 +13,7 @@ power_of_two_t load_symbol_from_library();
 int main(void){
     int exponent = 16;
 
+    std::cout << "============ executable links with libinterface.so and calls one of it's function =============" << std::endl;
     // We can call the function itself and even though interface doesn't link
     // with backend, it can call backend functions at runtime because
     // the symbols are loaded by virtue of the executable linking with backend.
@@ -20,6 +21,7 @@ int main(void){
     std::cout << "2^"<<exponent<<" = " << pot_direct << std::endl;
 
 
+    std::cout << "============ executable opens libinterface.so using dlopen() and calls one of it's function =============" << std::endl;
     // We can do the same with the function loaded using dlopen.
     auto power_of_two_f = load_symbol_from_library();
 
