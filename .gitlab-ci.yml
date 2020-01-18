@@ -31,7 +31,7 @@ build:
 test:
   stage: test
   script:
-    - otool -L cmake-build-debug/interface/libinterface.dylib
+    - otool -L cmake-build-debug/interface/libinterface.so
     - otool -L  cmake-build-debug/executable/executable
     - cmake-build-debug/executable/executable
   tags:
