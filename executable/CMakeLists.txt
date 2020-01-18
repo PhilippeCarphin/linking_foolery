@@ -7,11 +7,4 @@ target_link_libraries(
         backend
 )
 
-if(${APPLE})
-    #define LIB_INTERFACE_PATH "${CMAKE_BINARY_DIR}/interface/libinterface.dylib"
-    target_compile_definitions(executable PRIVATE "LIB_INTERFACE_PATH=\"${CMAKE_BINARY_DIR}/interface/libinterface.dylib\"")
-else()
-    target_link_libraries(executable PRIVATE dl)
-    #define LIB_INTERFACE_PATH "${CMAKE_BINARY_DIR}/interface/libinterface.so"
-    target_compile_definitions(executable PRIVATE "LIB_INTERFACE_PATH=\"${CMAKE_BINARY_DIR}/interface/libinterface.so\"")
-endif()
+target_compile_definitions(executable PRIVATE "LIB_INTERFACE_PATH=\"${CMAKE_BINARY_DIR}/interface/libinterface.so\"")

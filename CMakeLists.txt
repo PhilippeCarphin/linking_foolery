@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(linking_foolery)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_SHARED_LIBRARY_SUFFIX so)
 
 if(${APPLE})
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -undefined dynamic_lookup")
