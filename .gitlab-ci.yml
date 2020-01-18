@@ -1,6 +1,4 @@
 # image: amardikian/clang-3.8
-variables:
-  -
 stages:
   - configure
   - build
