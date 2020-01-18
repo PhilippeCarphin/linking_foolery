@@ -12,8 +12,7 @@ configure:mac:gcc:
     - cd cmake-build-debug
     - cmake ..
   artifacts:
-    paths:
-      - cmake-build-debug
+    untracked: true
 
 
 
