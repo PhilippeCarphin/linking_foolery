@@ -40,5 +40,7 @@ makefile_build:
   script:
     - make
     - make test
+  tags:
+    - imac
 
 
