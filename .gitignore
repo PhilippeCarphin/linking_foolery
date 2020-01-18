@@ -1,3 +1,5 @@
 cmake-build-debug
 build
 *.dylib
+executable/executable
+executable/executable.dSYM

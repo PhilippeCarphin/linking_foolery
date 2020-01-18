@@ -1,2 +1,16 @@
-all:
-	g++ backend.cpp -dynamiclib -o libbackend.dylib
+project_name=backend
+library_name=lib$(project_name).dylib
+source=$(project_name).cpp
+LD_FLAGS=-dynamiclib -undefined dynamic_lookup
+LD_LIBRARIES=
+INC=-I ..
+
+all:$(library_name)
+
+
+$(library_name):$(source)
+	g++ $< -o $@ $(INC) $(LD_FLAGS) $(LD_LIBRARIES)
+
+clean:
+	rm -f $(library_name)
+
