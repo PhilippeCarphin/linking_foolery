@@ -1,0 +1,20 @@
+
+
+stages:
+  - configura
+  - build
+  - test
+
+configure:
+  stage: configure
+  script:
+    - mkdir cmake-build-debug
+    - cd cmake-build-debug
+    - cmake ..
+  artifacts:
+    paths:
+      - cmake-build-debug
+
+
+
+
