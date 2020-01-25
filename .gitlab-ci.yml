@@ -4,6 +4,14 @@ stages:
   - test
 #  - makefile_build
 
+test_phil_runner:
+  stage: configure
+  script:
+    - echo "This is my script"
+    - echo "this is the second command of my script"
+  tags:
+    - phil-runner
+
 configure:
   stage: configure
   script:
