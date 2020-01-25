@@ -10,7 +10,7 @@ test_phil_runner:
     - echo "This is my script"
     - echo "this is the second command of my script"
   tags:
-    - phil-runner
+    - phil
 
 configure:
   stage: configure
