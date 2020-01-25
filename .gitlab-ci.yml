@@ -8,7 +8,9 @@ test_phil_runner:
   stage: configure
   script:
     - echo "This is my script"
+    - sleep 3
     - echo "this is the second command of my script"
+    - sleep 1
   tags:
     - phil
 
