@@ -3,8 +3,8 @@ add_executable(executable executable.cpp)
 target_link_libraries(
         executable
     PRIVATE
-        interface
         backend
+        interface
         dl
 )
 
