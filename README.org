@@ -54,12 +54,25 @@ helping us.
 
 To checkout a tag just do =git checkout ${the_tag}=.
 
-** Tag =good=
+Note that the behavior is the same whether =executable= uses =interface= by
+calling it's functions or by loaging it using =dlopen=.  If =executable= is
+built with linking to =backend= and =interface= in the right order, things can work.
+
+** Tag =correct=
 
 The library =interface= links with the library =backend=
 
 #+BEGIN_SRC cmake
 target_link_libraries(interface PRIVATE backend)
+#+END_SRC
+
+#+BEGIN_SRC cmake
+target_link_libraries(
+        executable
+    PRIVATE
+        interface
+        dl
+)
 #+END_SRC
 
 ** Tag =incorrect_working=
