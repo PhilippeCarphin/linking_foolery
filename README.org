@@ -35,6 +35,16 @@ executable/executable
 
 * Idea
 
+An executable and two libraries are linked together in different ways.
+
+Running the executable will either succeed and print the output of some
+functions or have a symbol lookup error.
+
+This demonstrates that if =--allow-shlib-undefined= is set, then running an
+executable that links with incorrectly built parts can still work.
+
+* Details
+
 Show how incorrect linking can be made to work.  By fiddling with the linking,
 and setting flags like =--allow-shlib-undefined=, we can have a library
 =interface= that uses symbols from the library =backend=.
