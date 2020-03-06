@@ -1,0 +1,92 @@
+* Building with CMake
+
+** Configuration
+*** In-tree build
+
+#+BEGIN_SRC sh
+git clone ${this_repo_url}
+cd linking_foolery
+mkdir cmake-build-debug
+cd cmake-build-debug
+cmake ..
+#+END_SRC
+
+*** Out-of-tree build
+
+#+BEGIN_SRC sh
+git clone ${this_repo_url}
+cd ${anywhere_you_want}
+mkdir linking-foolery-build
+cd linking-foolery-build
+cmake ${where_the_repo_is}
+#+END_SRC
+
+** Building
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+** Runnning
+
+#+BEGIN_SRC sh
+executable/executable
+#+END_SRC
+
+* Idea
+
+Show how incorrect linking can be made to work.  By fiddling with the linking,
+and setting flags like =--allow-shlib-undefined=, we can have a library
+=interface= that uses symbols from the library =backend=.
+
+If =interface= is not linked (=-l=) with =backend= when it is built, we can still
+make things work if the executable that uses =interface= is built with linking to
+=backend=.
+
+In some programs where =--allow-shlib-undefined= is used, if the executables
+that uses incorrectly linked libraries links with the right things and in the
+right order, you will never know that you have a problem until you try to use
+that library from a different executable.
+
+In order for the tags =incorrect_working= and =incorrect_non_working= to build,
+we have to use the flag =--allow-shlib-undefined= to prevent the linker from
+helping us.
+
+To checkout a tag just do =git checkout ${the_tag}=.
+
+** Tag =good=
+
+The library =interface= links with the library =backend=
+
+#+BEGIN_SRC cmake
+target_link_libraries(interface PRIVATE backend)
+#+END_SRC
+
+** Tag =incorrect_working=
+
+The library =interface= does not link with =backend= but =executable does and in
+this particular order.
+#+BEGIN_SRC cmake
+target_link_libraries(
+        executable
+    PRIVATE
+        interface
+        backend
+        dl
+)
+#+END_SRC
+
+** Tag =incorrect_non_working=
+
+
+#+BEGIN_SRC cmake
+target_link_libraries(
+        executable
+    PRIVATE
+        backend
+        interface
+        dl
+)
+#+END_SRC
+
+
