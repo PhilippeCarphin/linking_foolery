@@ -2,7 +2,7 @@ stages:
     - env
 
 env:
-  stage: configure
+  stage: env
   script:
     - echo "This is my script"
     - sleep 3
