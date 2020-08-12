@@ -1,58 +1,11 @@
 stages:
-  - configure
-  - build
-  - test
-#  - makefile_build
+    - env
 
-test_phil_runner:
+env:
   stage: configure
   script:
     - echo "This is my script"
     - sleep 3
     - echo "this is the second command of my script"
     - sleep 1
-  tags:
-    - phil
-
-configure:
-  stage: configure
-  script:
-    - mkdir cmake-build-debug
-    - cd cmake-build-debug
-    - cmake ..
-  artifacts:
-    untracked: true
-  tags:
-    - imac
-
-build:
-  stage: build
-  script:
-    - cd cmake-build-debug
-    - make
-  artifacts:
-    paths:
-      - cmake-build-debug/interface/libinterface.so
-      - cmake-build-debug/backend/libbackend.so
-      - cmake-build-debug/executable/executable
-  tags:
-    - imac
-
-test:
-  stage: test
-  script:
-    - otool -L cmake-build-debug/interface/libinterface.so
-    - otool -L  cmake-build-debug/executable/executable
-    - cmake-build-debug/executable/executable
-  tags:
-    - imac
-
-# jmakefile_build:
-#   stage: makefile_build
-#   script:
-#     - make
-#     - make test
-#   tags:
-#     - imac
-
-
+    - env | sort
