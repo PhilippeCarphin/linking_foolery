@@ -3,3 +3,4 @@ build
 *.dylib
 executable/executable
 executable/executable.dSYM
+.vscode
